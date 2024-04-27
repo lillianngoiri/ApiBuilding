@@ -8,7 +8,7 @@ img{
   height: 300px
 }
 .body {
-  background-color: white;
+  background-color: #f4f4f4;
 }
 
 #student-image {
@@ -31,7 +31,7 @@ img{
 }
 
 .navbar a {
-  float: left; /* Float the links to the left */
+  float: center; /* Float the links to the left */
   display: block; /* Make the links block elements */
   color: white; /* Text color */
   text-align: center; /* Center-align text */
@@ -58,7 +58,8 @@ button:hover {
 }
 
 .card {
-  background-color: pink;
+  background-color: #fff;
+  float: center;
   color: orange-red;
   padding: 20px;
   margin: 10px;

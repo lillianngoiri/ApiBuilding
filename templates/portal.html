@@ -1,0 +1,91 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles.css'%}">
+  <title>Document</title>
+
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'index' %}" src="" alt=  "">HOME </a>
+        <a href="{% url 'facts' %}" src="" alt=  "">FACTS </a>
+        <a href="{% url 'students' %}" src="" alt=  "">STUDENT PORTAL </a>
+        <a href="{% url 'dogs' %}" src="" alt=  "">DOGS </a>
+    </div>
+
+    <div class = "card ">
+        <h1>Random Student</h1>
+        <img id="student-image" src="" alt="Student Image"> <!-- Placeholder image, replace with actual image URL -->
+        <table class="table">
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td id="age"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td id="gender"></td>
+            </tr>
+            <tr>
+                <td>Courses</td>
+                <td id="courses"></td>
+            </tr>
+            <tr>
+                <td>GPA</td>
+                <td id="gpa"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td id="email"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td id="address"></td>
+            </tr>
+        </table>
+        <button id="reload-btn">Reload Data</button>
+
+        <script>
+            function getRandomStudent() {
+                fetch('https://freetestapi.com/api/v1/students')
+                    .then(response => response.json())
+                    .then(data => {
+                        const randomStudent = data[Math.floor(Math.random() * data.length)]; // Select a random student from the fetched data
+                        document.getElementById('name').innerText = randomStudent.name;
+                        document.getElementById('age').innerText = randomStudent.age;
+                        document.getElementById('gender').innerText = randomStudent.gender;
+                        document.getElementById('courses').innerText = randomStudent.courses;
+                        document.getElementById('gpa').innerText = randomStudent.gpa;
+                        document.getElementById('email').innerText = randomStudent.email;
+                        document.getElementById('address').innerText = randomStudent.address;
+                        
+                        // Fetch a random image URL from the API (replace 'image' with the actual key for image URL)
+                        const imageUrl = randomStudent.image;
+                        document.getElementById('student-image').src = imageUrl;
+                    });
+            }
+
+            document.getElementById('reload-btn').addEventListener('click', function() {
+                getRandomStudent(); // Fetch a random student and image
+            });
+
+            // Fetch a random student and image when the page loads
+            getRandomStudent();
+        </script>
+                <!-- Refresh button -->
+        <button onclick="window.location.reload();">Refresh</button>
+    </div>
+</body>
+</html>

@@ -6,24 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'styles.css'%}">
-  <title>Document</title>
+  <title>Home</title>
+<style>
+    .navbar {
+        background-color: #333; /* Background color */
+        overflow: hidden; /* Ensure links stay in line */
+        align-items: center;
+      }
+      
+      .navbar a {
+        float: left; /* Float the links to the left */
+        display: block; /* Make the links block elements */
+        color: white; /* Text color */
+        text-align: center; /* Center-align text */
+        padding: 14px 16px; /* Padding around the links */
+        text-decoration: none; /* Remove default underline */
+      }
+      
+      .navbar a:hover {
+        background-color: #ddd; /* Background color on hover */
+        color: black; /* Text color on hover */
+      }
+</style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="{% url 'facts' %}" src="" alt=  "">FACTS </a>
+        <a href="{% url 'students' %}" src="" alt=  "">STUDENT PORTAL </a>
+        <a href="{% url 'dogs' %}" src="" alt=  "">DOGS </a>
+    </div>
+  <div class = "card">
+    <h3>WELCOME TO THIS AMAZING PAGE</h3>
+    <p>This is a page where you can find facts about dogs and students.</p>
+    <p>To navigate to the the pages you need to click on the navigation bar.</p>
 
-  <!-- Using CSS, style the random fact, Random Student, & Random Image -->
-  <!-- Use your own colors create cards for the random facts and students,  -->
-  <!-- Pro Tip: You can use multiple pages -->
-  <!-- Pro Tip: Impliment a  refresh/reload button in every page  -->
-  <h1>Random Fact</h1>
-  {{fact}}
-
-  <h1>Random Student</h1>
-  {{name}}
-
-
-  <h1>Random Image</h1>
-
-  <img src="{{dog}}" alt="">
-  <!-- {{dog}} -->
 </body>
 </html>

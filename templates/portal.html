@@ -49,10 +49,7 @@
                 <td>Email</td>
                 <td id="email"></td>
             </tr>
-            <tr>
-                <td>Address</td>
-                <td id="address"></td>
-            </tr>
+
         </table><br>
         <button id="reload-btn">Reload Data</button>
 
@@ -61,7 +58,7 @@
                 fetch('https://freetestapi.com/api/v1/students')
                     .then(response => response.json())
                     .then(data => {
-                        const randomStudent = data[Math.floor(Math.random() * data.length)]; // Select a random student from the fetched data
+                        const randomStudent = data[Math.floor(Math.random() * data.length)]; // this selects a random student from the fetched data
                         document.getElementById('name').innerText = randomStudent.name;
                         document.getElementById('age').innerText = randomStudent.age;
                         document.getElementById('gender').innerText = randomStudent.gender;
@@ -76,9 +73,9 @@
                     });
             }
 
-            document.getElementById('reload-btn').addEventListener('click', function() {
-                getRandomStudent(); // Fetch a random student and image
-            });
+            //document.getElementById('reload-btn').addEventListener('click', function() {
+                //getRandomStudent(); // Fetch a random student and image
+            //});
 
             // Fetch a random student and image when the page loads
             getRandomStudent();
